@@ -12,7 +12,7 @@
         
         <Nav />
         
-        <Banner/>
+        <Banner />
 
         <Row title='NETFLIX ORIGINALS' 
              fetchUrl={requests.fetchNetflixOriginals} 
