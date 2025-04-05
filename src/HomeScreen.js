@@ -16,7 +16,7 @@
 
         <Row title='NETFLIX ORIGINALS' 
              fetchUrl={requests.fetchNetflixOriginals} 
-             isLargeRow 
+            //  isLargeRow 
         />
         <Row title='Top Rated' fetchUrl={requests.fetchTopRated} />
         <Row title='Action Movies' fetchUrl={requests.fetchActionMovies} />
