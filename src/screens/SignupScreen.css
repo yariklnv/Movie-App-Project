@@ -42,3 +42,12 @@
     text-align: left;
     margin-top: 30px;
 }
+
+.signupScreen_gray {
+    color: gray;
+}
+
+.signupScreen_link:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}

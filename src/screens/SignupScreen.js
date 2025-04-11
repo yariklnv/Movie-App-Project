@@ -2,6 +2,18 @@ import React from 'react'
 import './SignupScreen.css'
 
 function SignupScreen() {
+  const register = (e) => {
+    e.preventDefault();
+    // Firebase register
+  };
+
+  const signIn = (e) => {
+    e.preventDefault();
+    // Firebase sign in
+  };
+
+
+
   return (
     <div className='signupScreen'>
       <form>
@@ -11,11 +23,12 @@ function SignupScreen() {
         <button type='submit'>Sign In</button>
 
         <h4>
-          <span className='signupScreen_gray'>New to Netflix? </span> Sign up now.
+          <span className='signupScreen_gray'>New to Netflix? </span>
+          <span className='signupScreen_link'>Sign up now.</span>
         </h4>
       </form>
     </div>
   )
 }
 
-export default SignupScreen;  
+export default SignupScreen;
