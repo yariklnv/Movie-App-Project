@@ -1,21 +1,33 @@
 import React, { useEffect } from 'react';
+import { auth } from './firebase'; // Import auth from your Firebase configuration
 import './App.css';
 import HomeScreen from './screens/HomeScreen';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginScreen from './screens/LoginScreen';
+import { useDispatch, useSelector } from 'react-redux';
+// import { selectUser } from './features/userSlice';
+import { login, logout, selectUser } from './features/userSlice';
 
 
 function App() {
-  const user = null;
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
 
 useEffect(() => {
-  auth.onAuthStateChanged((authUser) => {
-    if (authUser) {
-      console.log('USER IS LOGGED IN', authUser);
+  const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+    if (userAuth) {
+      dispatch(
+        login({
+        uid: userAuth.uid,
+        email: userAuth.email,
+      }));
     } else {
-      console.log('USER IS NOT LOGGED IN');
+      // User is logged out
+      dispatch(logout)
     }
   });
+
+  return unsubscribe;
 }, []);
 
   return (
